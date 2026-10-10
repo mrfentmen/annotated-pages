@@ -1,0 +1,31 @@
+{
+  "version": "1.6",
+  "created_utc": "2026-10-10T22:44:59.975964+00:00",
+  "repository": "scream314/cicada3301",
+  "ref": "master",
+  "manifest_path": "/mnt/data/liber_primus_visual_source_integrity_v1_4.json",
+  "requested_pages": [
+    24
+  ],
+  "expected_raster": {
+    "width": 2400,
+    "height": 3600
+  },
+  "verified_count": 0,
+  "requested_count": 1,
+  "source_pixels_measured": false,
+  "results": [
+    {
+      "page": 24,
+      "filename": "24.jpg",
+      "source_url": "https://raw.githubusercontent.com/scream314/cicada3301/master/assets/2014/liber-primus-complete/24.jpg",
+      "expected_git_blob_sha1": "2b4e09dbad1a9c602a2919864b1a84f49d7ff501",
+      "output_path": "/mnt/data/lp_v16_acq_test2/24.jpg",
+      "download_attempted": true,
+      "status": "BLOCKED_DOWNLOAD",
+      "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "measurement_allowed": false
+    }
+  ],
+  "interpretation": "This script validates source byte identity and JPEG decoding only. It does not compute centroids, geometric significance, or cipher relevance."
+}

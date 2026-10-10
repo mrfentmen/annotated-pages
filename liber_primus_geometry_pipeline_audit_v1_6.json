@@ -1,0 +1,171 @@
+{
+  "version": "1.6",
+  "date": "2026-10-10",
+  "source_manifest": "liber_primus_visual_source_integrity_v1_4.json",
+  "master_workbook": "liber_primus_visual_master_dataset_v1_6.xlsx",
+  "coordinate_input": {
+    "workbook_sheet": "Pixel Centroids v1.1",
+    "cell_range": "A5:W19 (five points each for pages 24, 40, 73)",
+    "data_kind": "Inherited centroid values; not newly measured source pixels",
+    "independent_pixel_processing": false
+  },
+  "source_acquisition": {
+    "github_directory_metadata_retrieved": true,
+    "local_raw_download_succeeded": false,
+    "local_raw_download_error": "curl: (6) Could not resolve host: raw.githubusercontent.com",
+    "github_base64_payload_returned": true,
+    "github_base64_payload_written_to_local_analysis_fs": false,
+    "page_object_count_in_manifest": 75,
+    "source_pixels_processed": false,
+    "critical_limit": "The current analysis filesystem does not contain the original source JPEG bytes. Hashes in GitHub directory metadata and the existing manifest were not recomputed from locally acquired bytes.",
+    "automated_script_test": {
+      "requested_page": 24,
+      "status": "BLOCKED_DOWNLOAD",
+      "error": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
+      "audit_path": "/mnt/data/lp_v16_acq_test/source_acquisition_audit_v1_6.json",
+      "measurement_allowed": false,
+      "note": "Failure path tested; no page bytes downloaded."
+    }
+  },
+  "coordinate_refit": {
+    "method": "Exhaustive correspondence search over all 5! = 120 permutations for both determinant-constrained 2D similarity-transform models per page pair; row-vector formulation B ~= scale*A@Q + translation.",
+    "fits_searched_per_page_pair": 240,
+    "matches_previous_workbook_fit_values": true,
+    "page_pairs": [
+      {
+        "pair": "24->40",
+        "best_model": "reflection",
+        "mapping": [
+          "1->1",
+          "2->2",
+          "3->5",
+          "4->4",
+          "5->3"
+        ],
+        "scale": 1.0000209023250348,
+        "translation_xy_px": [
+          -0.20987336158577818,
+          3674.0080060493606
+        ],
+        "rotation_or_reflection_matrix": [
+          [
+            0.999999998158984,
+            6.0679748038186054e-05
+          ],
+          [
+            6.0679748038159464e-05,
+            -0.9999999981589839
+          ]
+        ],
+        "rms_residual_px": 0.03113771330418054,
+        "max_residual_px": 0.05269254735344714,
+        "normalized_pair_distance_signature_rms_difference": 6.364689830712701e-05
+      },
+      {
+        "pair": "24->73",
+        "best_model": "reflection",
+        "mapping": [
+          "1->4",
+          "2->5",
+          "3->3",
+          "4->2",
+          "5->1"
+        ],
+        "scale": 1.0004310035888802,
+        "translation_xy_px": [
+          2401.4140163252187,
+          -420.5632457460242
+        ],
+        "rotation_or_reflection_matrix": [
+          [
+            -0.9999999962964523,
+            -8.606448416958547e-05
+          ],
+          [
+            -8.606448416953166e-05,
+            0.9999999962964522
+          ]
+        ],
+        "rms_residual_px": 0.20642907963178406,
+        "max_residual_px": 0.28824471704643206,
+        "normalized_pair_distance_signature_rms_difference": 0.00048502383330336046
+      },
+      {
+        "pair": "40->73",
+        "best_model": "proper rotation",
+        "mapping": [
+          "1->4",
+          "2->5",
+          "3->1",
+          "4->2",
+          "5->3"
+        ],
+        "scale": 1.00041002799585,
+        "translation_xy_px": [
+          2401.110686585217,
+          3254.9513764517496
+        ],
+        "rotation_or_reflection_matrix": [
+          [
+            -0.9999999996782278,
+            -2.5368176101372032e-05
+          ],
+          [
+            2.536817610144983e-05,
+            -0.9999999996782281
+          ]
+        ],
+        "rms_residual_px": 0.23180491132032746,
+        "max_residual_px": 0.3390072980331133,
+        "normalized_pair_distance_signature_rms_difference": 0.0005306005632708764
+      }
+    ],
+    "inferential_p_value": null,
+    "interpretation": "Descriptive coordinate refit only. Best fits were selected in-sample across 240 combinations per pair. It is not a manuscript-specific significance test and establishes no cipher connection."
+  },
+  "findings": [
+    {
+      "id": "ACQ-01",
+      "status": "blocked",
+      "finding": "Original JPEG bytes could not be transferred to the local pixel-analysis filesystem in this run.",
+      "evidence": "Direct raw URL download failed at host name resolution; GitHub base64 content was returned but not materialized as a local image file.",
+      "next_step": "Run the accompanying acquisition script in an environment with network access; it validates Git blob SHA-1, SHA-256, JPEG format, and dimensions."
+    },
+    {
+      "id": "REFIT-01",
+      "status": "recomputed from stored data",
+      "finding": "Best-fit similarities reproduce the workbook's earlier numerical values from the stored centroid coordinates.",
+      "evidence": "Exhaustive 120-permutation search under each determinant sign; fit residuals and normalized signatures match v1.2 values within rounding.",
+      "next_step": "Do not classify as pixel-independent validation; compare after source JPEG bytes are locally acquired."
+    },
+    {
+      "id": "REFIT-02",
+      "status": "descriptive",
+      "finding": "Pages 24 and 40 are nearly related by a vertical reflection plus translation in the inherited centroid coordinates.",
+      "evidence": "RMS residual 0.0311377 px; max residual 0.0526925 px; scale 1.00002090; translation approximately (-0.2099, 3674.0080) px.",
+      "next_step": "Investigate whether source images reuse or mirror artwork only after comparing exact decoded pixel crops."
+    },
+    {
+      "id": "REFIT-03",
+      "status": "descriptive",
+      "finding": "Normalized sorted pair-distance signatures are close for all three five-dot groups.",
+      "evidence": "RMS signature differences: 24-40 0.0000636469; 24-73 0.0004850238; 40-73 0.0005306006.",
+      "next_step": "Collect manuscript-wide motif candidates and matched controls before significance testing."
+    },
+    {
+      "id": "INFER-01",
+      "status": "not established",
+      "finding": "No valid p-value, cipher link, or independent source-pixel measurement is established by this update.",
+      "evidence": "No JPEG bytes decoded locally; all geometry calculations use inherited coordinates; mappings were selected from a family of tested correspondences.",
+      "next_step": "Prespecify cipher predictions only after pixels and corpus-wide geometric candidate distribution are available."
+    }
+  ],
+  "acquisition_script": {
+    "filename": "acquire_verify_liber_primus_sources_v1_6.py",
+    "sha256": "ae3cd729889902e719ad050fba50365ab337b8565536272d90c50d407b4a95b6",
+    "self_test_available": true,
+    "self_test_scope": "Git blob hashing helper only; not source acquisition or image measurements.",
+    "self_test_result": "PASS",
+    "download_path_test_result": "BLOCKED_DOWNLOAD as expected in DNS-restricted runtime"
+  }
+}
