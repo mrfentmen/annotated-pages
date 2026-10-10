@@ -1,0 +1,557 @@
+{
+  "version": "1.2",
+  "date": "2026-10-10",
+  "input_workbook": "/mnt/data/files/liber_primus_visual_master_dataset_v1_1.xlsx",
+  "input_sha256": "e2998d9d646839556f11e80c6dd5eba2c33c63f09cc571fead936b77390e3841",
+  "output_workbook": "/mnt/data/liber_primus_visual_master_dataset_v1_2.xlsx",
+  "original_sheets_retained": [
+    "Master Dataset",
+    "Scope & Schema",
+    "CSV Source Archive",
+    "Coverage Audit",
+    "Geometry Pilot",
+    "Geometry Test Log",
+    "Centroid Extraction",
+    "Source Visual Audit",
+    "Measured Centroids",
+    "Measured Geometry",
+    "Contextual Controls",
+    "Source Integrity v1.0",
+    "Geometry Refit v1.0",
+    "Experiment Log v1.0",
+    "Pixel Centroids v1.1",
+    "Pixel Thresholds v1.1",
+    "Auxiliary Controls v1.1",
+    "Pixel Transform Fits v1.1",
+    "Decoder Audit v1.1"
+  ],
+  "new_sheets": [
+    "Workbook Audit v1.2",
+    "Geometry Refit v1.2",
+    "Cluster Signatures v1.2",
+    "Threshold Sensitivity v1.2",
+    "Auxiliary Controls v1.2",
+    "Null Distribution v1.2",
+    "Decoder Crosscheck v1.2",
+    "Experiment Log v1.2",
+    "Coverage Audit v1.2",
+    "Cipher Correlation v1.2"
+  ],
+  "source_hash_matches": [
+    [
+      24,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/24.jpg",
+      "2b4e09dbad1a9c602a2919864b1a84f49d7ff501",
+      "2b4e09dbad1a9c602a2919864b1a84f49d7ff501",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      39,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/39.jpg",
+      "0270e099f35a00dc24a9dc673ce13d4a0a843802",
+      "0270e099f35a00dc24a9dc673ce13d4a0a843802",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      40,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/40.jpg",
+      "feee4eed2a4f6d66456ff5a977f43c7ef297f8eb",
+      "feee4eed2a4f6d66456ff5a977f43c7ef297f8eb",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      50,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/50.jpg",
+      "68d3e28d8c4161fdfe91a542f5bac8e276bc441e",
+      "68d3e28d8c4161fdfe91a542f5bac8e276bc441e",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      56,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/56.jpg",
+      "819261c833837cbaa2bd200d210ca299d79031f3",
+      "819261c833837cbaa2bd200d210ca299d79031f3",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      57,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/57.jpg",
+      "83f661b6107587c5d153d6dea3f6bf03090a70bc",
+      "83f661b6107587c5d153d6dea3f6bf03090a70bc",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      68,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/68.jpg",
+      "701e47789abf4401d61420ff938c2b72aa03ad2c",
+      "701e47789abf4401d61420ff938c2b72aa03ad2c",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ],
+    [
+      73,
+      "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/73.jpg",
+      "afa3428764199ddf590baf0c055c8caedc079cb1",
+      "afa3428764199ddf590baf0c055c8caedc079cb1",
+      true,
+      "GitHub blob SHA returned by public repository connector on 2026-10-10; compared to v1.1 row. No local image bytes decoded during v1.2 build."
+    ]
+  ],
+  "centroid_rows": 15,
+  "target_row_issues": [],
+  "master_feature_id_rows": 185,
+  "master_feature_id_duplicates": 0,
+  "geometry_summary": [
+    {
+      "pair": "24-40",
+      "page_a": 24,
+      "page_b": 40,
+      "pairwise_signature_rms_difference": 6.364689830712701e-05,
+      "page_a_rms_pair_distance_px": 483.2225959166935,
+      "page_b_rms_pair_distance_px": 483.23269890045515,
+      "same_label_translation_only_rms_px": 202.88151384745328,
+      "candidate_mappings_per_model": 120,
+      "models_per_pair": 2,
+      "total_similarity_fits_per_pair": 240,
+      "note": "Best fit selected after searching 120 permutations per determinant class; residual is in-sample, not a p-value."
+    },
+    {
+      "pair": "24-73",
+      "page_a": 24,
+      "page_b": 73,
+      "pairwise_signature_rms_difference": 0.00048502383330336236,
+      "page_a_rms_pair_distance_px": 483.2225959166935,
+      "page_b_rms_pair_distance_px": 483.4309767734584,
+      "same_label_translation_only_rms_px": 363.4522621325436,
+      "candidate_mappings_per_model": 120,
+      "models_per_pair": 2,
+      "total_similarity_fits_per_pair": 240,
+      "note": "Best fit selected after searching 120 permutations per determinant class; residual is in-sample, not a p-value."
+    },
+    {
+      "pair": "40-73",
+      "page_a": 40,
+      "page_b": 73,
+      "pairwise_signature_rms_difference": 0.0005306005632708786,
+      "page_a_rms_pair_distance_px": 483.23269890045515,
+      "page_b_rms_pair_distance_px": 483.4309767734584,
+      "same_label_translation_only_rms_px": 253.27894629096826,
+      "candidate_mappings_per_model": 120,
+      "models_per_pair": 2,
+      "total_similarity_fits_per_pair": 240,
+      "note": "Best fit selected after searching 120 permutations per determinant class; residual is in-sample, not a p-value."
+    }
+  ],
+  "transform_fit_reconciliation": [
+    {
+      "pair": "24\u219240",
+      "model": "reflected",
+      "stored_mapping": "1\u21921; 2\u21922; 3\u21925; 4\u21924; 5\u21923",
+      "current_mapping": "1\u21921; 2\u21922; 3\u21925; 4\u21924; 5\u21923",
+      "mapping_equal": true,
+      "stored_scale": 1.0000212327092592,
+      "current_scale": 1.0000209023250348,
+      "scale_delta_current_minus_stored": -3.3038422442288606e-07,
+      "stored_rms_px": 0.031139094364702583,
+      "current_rms_px": 0.03113771330423836,
+      "rms_delta_current_minus_stored_px": -1.3810604642221225e-06,
+      "stored_max_px": 0.05269488709215266,
+      "current_max_px": 0.05269254735321977,
+      "max_delta_current_minus_stored_px": -2.339738932891078e-06
+    },
+    {
+      "pair": "24\u219273",
+      "model": "reflected",
+      "stored_mapping": "1\u21924; 2\u21925; 3\u21923; 4\u21922; 5\u21921",
+      "current_mapping": "1\u21924; 2\u21925; 3\u21923; 4\u21922; 5\u21921",
+      "mapping_equal": true,
+      "stored_scale": 1.0004305201128723,
+      "current_scale": 1.0004310035888802,
+      "scale_delta_current_minus_stored": 4.834760078953337e-07,
+      "stored_rms_px": 0.20618647020579933,
+      "current_rms_px": 0.20642907963179946,
+      "rms_delta_current_minus_stored_px": 0.0002426094260001288,
+      "stored_max_px": 0.2882864164577639,
+      "current_max_px": 0.2882447170462366,
+      "max_delta_current_minus_stored_px": -4.1699411527318375e-05
+    },
+    {
+      "pair": "40\u219273",
+      "model": "proper",
+      "stored_mapping": "1\u21924; 2\u21925; 3\u21921; 4\u21922; 5\u21923",
+      "current_mapping": "1\u21924; 2\u21925; 3\u21921; 4\u21922; 5\u21923",
+      "mapping_equal": true,
+      "stored_scale": 1.0004092141161007,
+      "current_scale": 1.00041002799585,
+      "scale_delta_current_minus_stored": 8.138797493728589e-07,
+      "stored_rms_px": 0.23154888802527057,
+      "current_rms_px": 0.23180491132036463,
+      "rms_delta_current_minus_stored_px": 0.0002560232950940544,
+      "stored_max_px": 0.33896440528383387,
+      "current_max_px": 0.33900729803316854,
+      "max_delta_current_minus_stored_px": 4.289274933466647e-05
+    }
+  ],
+  "transform_fits": [
+    {
+      "pair": "24\u219240",
+      "model": "proper (rotation)",
+      "mapping": "1\u21921; 2\u21922; 3\u21923; 4\u21924; 5\u21925",
+      "det_R": 0.9999999999999999,
+      "scale": 0.949948735849789,
+      "translation_xy_px": [
+        1918.545143214787,
+        -2398.507812169917
+      ],
+      "rms_px": 95.49692085780028,
+      "max_px": 126.56551361994194,
+      "normalized_rms": 0.1976251145223013,
+      "permutations_tested": 120,
+      "R_json": "[[0.8207572145898883,0.5712771610161291],[-0.571277161016129,0.8207572145898878]]",
+      "errors_json": "[126.56551361994194,103.38662461839247,85.44038538880503,21.634388354552435,105.46364237915176]"
+    },
+    {
+      "pair": "24\u219240",
+      "model": "reflected",
+      "mapping": "1\u21921; 2\u21922; 3\u21925; 4\u21924; 5\u21923",
+      "det_R": -0.9999999999999998,
+      "scale": 1.0000209023250348,
+      "translation_xy_px": [
+        -0.2098733615855508,
+        3674.0080060493606
+      ],
+      "rms_px": 0.03113771330423836,
+      "max_px": 0.05269254735321977,
+      "normalized_rms": 6.443761853720607e-05,
+      "permutations_tested": 120,
+      "R_json": "[[0.999999998158984,6.0679748038186054e-05],[6.0679748038159464e-05,-0.9999999981589839]]",
+      "errors_json": "[0.009780780687045975,0.0036530134527260703,0.03416306608910894,0.05269254735321977,0.028198548540141036]"
+    },
+    {
+      "pair": "24\u219273",
+      "model": "proper (rotation)",
+      "mapping": "1\u21924; 2\u21925; 3\u21921; 4\u21922; 5\u21923",
+      "det_R": 1.0,
+      "scale": 0.9502994356802461,
+      "translation_xy_px": [
+        481.83605217778177,
+        5654.290747095664
+      ],
+      "rms_px": 95.57240549772261,
+      "max_px": 126.61186637404164,
+      "normalized_rms": 0.19778132542915913,
+      "permutations_tested": 120,
+      "R_json": "[[-0.820759567987969,-0.571273779860587],[0.5712737798605872,-0.820759567987969]]",
+      "errors_json": "[126.61186637404164,103.39050897365358,85.64521266590891,21.42304429748528,105.62297160653785]"
+    },
+    {
+      "pair": "24\u219273",
+      "model": "reflected",
+      "mapping": "1\u21924; 2\u21925; 3\u21923; 4\u21922; 5\u21921",
+      "det_R": -1.0,
+      "scale": 1.0004310035888802,
+      "translation_xy_px": [
+        2401.414016325218,
+        -420.56324574602377
+      ],
+      "rms_px": 0.20642907963179946,
+      "max_px": 0.2882447170462366,
+      "normalized_rms": 0.0004271925224030446,
+      "permutations_tested": 120,
+      "R_json": "[[-0.9999999962964523,-8.606448416958547e-05],[-8.606448416953166e-05,0.9999999962964522]]",
+      "errors_json": "[0.06759624638717365,0.16401403568365922,0.13099626415066085,0.2882447170462366,0.2852190912873614]"
+    },
+    {
+      "pair": "40\u219273",
+      "model": "proper (rotation)",
+      "mapping": "1\u21924; 2\u21925; 3\u21921; 4\u21922; 5\u21923",
+      "det_R": 1.0000000000000002,
+      "scale": 1.00041002799585,
+      "translation_xy_px": [
+        2401.110686585217,
+        3254.951376451749
+      ],
+      "rms_px": 0.23180491132036463,
+      "max_px": 0.33900729803316854,
+      "normalized_rms": 0.0004796962454068447,
+      "permutations_tested": 120,
+      "R_json": "[[-0.9999999996782278,-2.5368176101372032e-05],[2.536817610144983e-05,-0.9999999996782281]]",
+      "errors_json": "[0.07500187744005311,0.16761442978575747,0.30582077168706956,0.33900729803316854,0.16277411758092517]"
+    },
+    {
+      "pair": "40\u219273",
+      "model": "reflected",
+      "mapping": "1\u21924; 2\u21925; 3\u21923; 4\u21922; 5\u21921",
+      "det_R": -1.0000000000000002,
+      "scale": 0.9502779390278133,
+      "translation_xy_px": [
+        2476.3513372180923,
+        2788.7564446751994
+      ],
+      "rms_px": 95.57391808426674,
+      "max_px": 126.62097641982729,
+      "normalized_rms": 0.1977803205406734,
+      "permutations_tested": 120,
+      "R_json": "[[-0.8207225597865263,-0.5713269465528927],[-0.5713269465528927,0.8207225597865263]]",
+      "errors_json": "[126.62097641982729,103.39005434990453,105.62898221186363,21.4419114231707,85.62859705326643]"
+    }
+  ],
+  "signatures": {
+    "sorted_pairwise_distances": [
+      {
+        "page": 24,
+        "rank": 1,
+        "distance_px": 197.248409357769,
+        "normalized_by_group_rms": 0.4081936793199426
+      },
+      {
+        "page": 24,
+        "rank": 2,
+        "distance_px": 204.8111503217782,
+        "normalized_by_group_rms": 0.4238443153372058
+      },
+      {
+        "page": 24,
+        "rank": 3,
+        "distance_px": 240.44412521041147,
+        "normalized_by_group_rms": 0.4975846064364579
+      },
+      {
+        "page": 24,
+        "rank": 4,
+        "distance_px": 318.1441080476739,
+        "normalized_by_group_rms": 0.6583800317618451
+      },
+      {
+        "page": 24,
+        "rank": 5,
+        "distance_px": 427.302564040388,
+        "normalized_by_group_rms": 0.8842768687788226
+      },
+      {
+        "page": 24,
+        "rank": 6,
+        "distance_px": 488.3355258042363,
+        "normalized_by_group_rms": 1.0105808998394277
+      },
+      {
+        "page": 24,
+        "rank": 7,
+        "distance_px": 554.1694177229558,
+        "normalized_by_group_rms": 1.1468201661217297
+      },
+      {
+        "page": 24,
+        "rank": 8,
+        "distance_px": 582.2171515814439,
+        "normalized_by_group_rms": 1.204863258674718
+      },
+      {
+        "page": 24,
+        "rank": 9,
+        "distance_px": 682.6692256726167,
+        "normalized_by_group_rms": 1.4127427637723866
+      },
+      {
+        "page": 24,
+        "rank": 10,
+        "distance_px": 749.653443337173,
+        "normalized_by_group_rms": 1.551362559764096
+      },
+      {
+        "page": 40,
+        "rank": 1,
+        "distance_px": 197.33777939467146,
+        "normalized_by_group_rms": 0.4083700872140745
+      },
+      {
+        "page": 40,
+        "rank": 2,
+        "distance_px": 204.81115032177817,
+        "normalized_by_group_rms": 0.42383545399101563
+      },
+      {
+        "page": 40,
+        "rank": 3,
+        "distance_px": 240.4180796472056,
+        "normalized_by_group_rms": 0.49752030480191317
+      },
+      {
+        "page": 40,
+        "rank": 4,
+        "distance_px": 318.1441080476739,
+        "normalized_by_group_rms": 0.6583662669591217
+      },
+      {
+        "page": 40,
+        "rank": 5,
+        "distance_px": 427.30256404038806,
+        "normalized_by_group_rms": 0.8842583811332921
+      },
+      {
+        "page": 40,
+        "rank": 6,
+        "distance_px": 488.3355258042363,
+        "normalized_by_group_rms": 1.0105597715456591
+      },
+      {
+        "page": 40,
+        "rank": 7,
+        "distance_px": 554.1694177229558,
+        "normalized_by_group_rms": 1.1467961894629848
+      },
+      {
+        "page": 40,
+        "rank": 8,
+        "distance_px": 582.2540371426892,
+        "normalized_by_group_rms": 1.204914399351589
+      },
+      {
+        "page": 40,
+        "rank": 9,
+        "distance_px": 682.6692256726167,
+        "normalized_by_group_rms": 1.412713227449132
+      },
+      {
+        "page": 40,
+        "rank": 10,
+        "distance_px": 749.6747520759453,
+        "normalized_by_group_rms": 1.5513742215329196
+      },
+      {
+        "page": 73,
+        "rank": 1,
+        "distance_px": 196.9706619293847,
+        "normalized_by_group_rms": 0.40744319539475343
+      },
+      {
+        "page": 73,
+        "rank": 2,
+        "distance_px": 205.07504681910962,
+        "normalized_by_group_rms": 0.4242075015296553
+      },
+      {
+        "page": 73,
+        "rank": 3,
+        "distance_px": 240.98753025208586,
+        "normalized_by_group_rms": 0.4984941839277617
+      },
+      {
+        "page": 73,
+        "rank": 4,
+        "distance_px": 318.50470229699897,
+        "normalized_by_group_rms": 0.6588421462413944
+      },
+      {
+        "page": 73,
+        "rank": 5,
+        "distance_px": 427.2404459153768,
+        "normalized_by_group_rms": 0.8837672107130753
+      },
+      {
+        "page": 73,
+        "rank": 6,
+        "distance_px": 488.4893643099408,
+        "normalized_by_group_rms": 1.0104635155368888
+      },
+      {
+        "page": 73,
+        "rank": 7,
+        "distance_px": 554.3009470179625,
+        "normalized_by_group_rms": 1.146597908800773
+      },
+      {
+        "page": 73,
+        "rank": 8,
+        "distance_px": 582.2708098724939,
+        "normalized_by_group_rms": 1.2044549022462685
+      },
+      {
+        "page": 73,
+        "rank": 9,
+        "distance_px": 683.1131512809939,
+        "normalized_by_group_rms": 1.4130520883048605
+      },
+      {
+        "page": 73,
+        "rank": 10,
+        "distance_px": 750.061977714382,
+        "normalized_by_group_rms": 1.5515389243785884
+      }
+    ],
+    "historical_max_normalized_signature_rms": [
+      {
+        "pair": "24-40",
+        "rms_difference": 6.364689830712701e-05
+      },
+      {
+        "pair": "24-73",
+        "rms_difference": 0.00048502383330336236
+      },
+      {
+        "pair": "40-73",
+        "rms_difference": 0.0005306005632708786
+      }
+    ]
+  },
+  "threshold_sensitivity": {
+    "rows": 60,
+    "points": 15,
+    "thresholds": [
+      40,
+      60,
+      80,
+      100
+    ],
+    "max_shift_from_T60_px": 0.17361163555475112,
+    "median_per_dot_max_shift_px": 0.05099019513589039
+  },
+  "controls": {
+    "page50_gaps": {
+      "gaps": [
+        417.625,
+        478.154
+      ],
+      "gap1_share_pct": 46.621432295242464,
+      "gap2_share_pct": 53.37856770475754,
+      "y_spread_px": 0.008000000000038199
+    },
+    "page56_gaps": {
+      "gaps": [
+        196.0,
+        224.51
+      ],
+      "gap1_share_pct": 46.61006872607072,
+      "gap2_share_pct": 53.38993127392928,
+      "y_spread_px": 0.0
+    },
+    "page50_to56_same_order_similarity": {
+      "det_R": 1.0,
+      "scale": 0.4694373827648808,
+      "translation_x_px": 937.7831051863144,
+      "translation_y_px": 874.3360181925831,
+      "rms_px": 0.022528722807107406,
+      "max_px": 0.031836207788095,
+      "R_json": "[[0.9999999999620188,-8.715633330498763e-06],[8.715633330498763e-06,0.9999999999620188]]",
+      "per_point_errors_json": "[0.016993711728119837,0.031836207788095,0.01484249606141925]"
+    },
+    "page57_68_recorded_geometry_equal": true,
+    "page39_best_5_subset": [
+      "label_1; label_2; label_3; label_4; label_6",
+      0.15338307110510047,
+      415.3935829261208,
+      55.49330432583736,
+      616.719634648517,
+      "Same normalization: sort all 10 pairwise distances, divide by within-group RMS pairwise distance."
+    ]
+  },
+  "decoder_crosscheck": "NOT PERFORMED: source JPEG bytes were not locally decoded; available python script uses Pillow and reported JS decoder source was not recovered.",
+  "null_model": "NOT RUN: old synthetic rectangle null is rejected for manuscript-empirical inference.",
+  "corpus_detector": "NOT RUN: no full-corpus local source raster set available."
+}

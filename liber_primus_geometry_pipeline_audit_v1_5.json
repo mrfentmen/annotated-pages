@@ -1,0 +1,128 @@
+{
+  "version": "1.5",
+  "script": "measure_constellations_v0_2.py",
+  "script_sha256": "db59ddd33a39faa42c24b15d6256133f59d2284358ad11375665872cd89ef13f",
+  "source_pixels_processed": false,
+  "synthetic_self_test_returncode": 0,
+  "synthetic_self_test": {
+    "synthetic_self_test": "PASS",
+    "thresholds": {
+      "40": {
+        "count": 5,
+        "max_center_error_px": 0.0
+      },
+      "60": {
+        "count": 5,
+        "max_center_error_px": 0.0
+      },
+      "80": {
+        "count": 5,
+        "max_center_error_px": 0.0
+      },
+      "100": {
+        "count": 5,
+        "max_center_error_px": 0.0
+      }
+    },
+    "scope": "Synthetic circles only; no Liber Primus source image was processed."
+  },
+  "findings": [
+    {
+      "id": "PIPE-01",
+      "area": "Scope",
+      "status": "Confirmed limitation",
+      "finding": "Only three predefined target ROIs (pages 24, 40, 73) are processed.",
+      "evidence": "PAGE_CONFIG and run() loop; this is a target-group extractor, not a corpus-wide detector.",
+      "next_step": "Do not use this script to claim all manuscript dot groups were searched."
+    },
+    {
+      "id": "PIPE-02",
+      "area": "Source validation",
+      "status": "Good guard, untested locally",
+      "finding": "Git blob SHA-1 and 2400\u00d73600 dimensions are checked before measurement.",
+      "evidence": "git_blob_sha1() and run() source checks.",
+      "next_step": "Retain these guards; execute only after exact bytes are available."
+    },
+    {
+      "id": "PIPE-03",
+      "area": "Rejected components",
+      "status": "Output omission",
+      "finding": "Components that fail the dot-like filter are discarded, not emitted to an audit table; comments imply broader candidate reporting.",
+      "evidence": "extract_components() filter and return path.",
+      "next_step": "Modify extractor to log all components with accepted/rejected status and rejection reasons."
+    },
+    {
+      "id": "PIPE-04",
+      "area": "Geometric signature",
+      "status": "Method mismatch",
+      "finding": "pairwise_signature() divides distances by the median; workbook Cluster Signatures v1.2 says distances are normalized by RMS pairwise distance.",
+      "evidence": "pairwise_signature() near top of script vs workbook methodology.",
+      "next_step": "Do not compare script outputs numerically with workbook signatures unless normalization is unified."
+    },
+    {
+      "id": "PIPE-05",
+      "area": "Null model",
+      "status": "Invalid for inference",
+      "finding": "Random points in a rectangle ignore real manuscript marks, layouts, copied ornament, component detection, and target-selection procedure. Script can emit empirical p-values despite its own caveat.",
+      "evidence": "run() random control section.",
+      "next_step": "Disable inferential interpretation; use only as software smoke-test or historical exploratory diagnostic."
+    },
+    {
+      "id": "PIPE-06",
+      "area": "Threshold matching",
+      "status": "Greedy matching",
+      "finding": "Cross-threshold centroids are paired greedily by nearest distance, not via globally optimal assignment; in crowded ROIs this can create mismatches.",
+      "evidence": "threshold stability block in run().",
+      "next_step": "Use a minimum-cost bipartite assignment and preserve unmatched candidates."
+    },
+    {
+      "id": "PIPE-07",
+      "area": "Detector bias",
+      "status": "Pre-filter selection",
+      "finding": "Area, width, height, aspect, and fill cutoffs are tuned to solid circular marks; irregular, touching, faded, or small marks are excluded before any corpus-level comparison.",
+      "evidence": "extract_components() candidate filter.",
+      "next_step": "For corpus survey, retain every component and classify later; calibrate on labeled controls."
+    },
+    {
+      "id": "PIPE-08",
+      "area": "Self-test",
+      "status": "Pass, limited scope",
+      "finding": "Synthetic self-test passed for thresholds 40, 60, 80, 100 with five synthetic circles and zero rounded-center error.",
+      "evidence": "Executed during v1.5 audit.",
+      "next_step": "Validates a narrow component-extraction behavior only; not source images, JPEG decoding, ROIs, or cipher relevance."
+    },
+    {
+      "id": "PIPE-09",
+      "area": "Pixel decoder",
+      "status": "Independent cross-check pending",
+      "finding": "This script uses Pillow Image.convert(\"L\"), whereas recorded centroid sheet attributes values to a separate JavaScript baseline-JPEG luma decoder.",
+      "evidence": "Pillow conversion in run(); Decoder Crosscheck v1.2.",
+      "next_step": "Re-run both decoders on identical verified bytes; compare luma arrays and component centroids."
+    },
+    {
+      "id": "PIPE-10",
+      "area": "Pairwise function",
+      "status": "Input assumptions unchecked",
+      "finding": "rms_difference() uses zip and would silently truncate mismatched signatures; callers currently expect ten distances from five points.",
+      "evidence": "rms_difference().",
+      "next_step": "Add equal-length assertions and report candidate count before any signature calculation."
+    },
+    {
+      "id": "PIPE-11",
+      "area": "Output reproducibility",
+      "status": "Partial",
+      "finding": "CSV fields are generated from accepted candidates only; rejected-component evidence and full pixel-decoder settings are absent.",
+      "evidence": "candidate CSV construction.",
+      "next_step": "Store full detector config, software versions, all components, and accepted/rejected reasons."
+    },
+    {
+      "id": "PIPE-12",
+      "area": "Current research implication",
+      "status": "No new cipher evidence",
+      "finding": "Static review and synthetic self-test do not independently validate the five-dot match, page 57/68 ornament identity, or any cipher relationship.",
+      "evidence": "Scope of this audit.",
+      "next_step": "Next evidence gate remains source-byte acquisition followed by independent decode and blind full-corpus detection."
+    }
+  ],
+  "conclusion": "Static pipeline audit found several reproducibility/inference gaps. The synthetic self-test passed, but no original Liber Primus source pixels were processed and no geometric or cipher result was independently reproduced."
+}
