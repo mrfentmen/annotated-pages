@@ -1,0 +1,143 @@
+{
+  "version": "1.9",
+  "date": "2026-10-10",
+  "objective": "Test the user's annotated-pages GitHub repository as an alternate image retrieval route and cross-check against the original source inventory.",
+  "annotated_repository": "mrfentmen/annotated-pages",
+  "annotated_ref": "main",
+  "original_repository": "scream314/cicada3301",
+  "original_ref": "master",
+  "original_directory": "assets/2014/liber-primus-complete/",
+  "method": {
+    "connector": "GitHub connector fetch_file with encoding=base64",
+    "payload_handling": "Payloads were decoded by rendering data:image/jpeg;base64 URLs into image previews in the analysis conversation.",
+    "base64_whitespace_removed_for_length": true,
+    "local_filesystem_transfer": false,
+    "local_network_test": "Python urllib request to raw.githubusercontent.com failed with Temporary failure in name resolution."
+  },
+  "original_source_pages": [
+    {
+      "page": 24,
+      "bytes": 580968,
+      "base64_chars": 774624,
+      "sha": "2b4e09dbad1a9c602a2919864b1a84f49d7ff501",
+      "manifest_sha": "2b4e09dbad1a9c602a2919864b1a84f49d7ff501",
+      "sha_matches_manifest": true,
+      "url": "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/24.jpg"
+    },
+    {
+      "page": 40,
+      "bytes": 484095,
+      "base64_chars": 645460,
+      "sha": "feee4eed2a4f6d66456ff5a977f43c7ef297f8eb",
+      "manifest_sha": "feee4eed2a4f6d66456ff5a977f43c7ef297f8eb",
+      "sha_matches_manifest": true,
+      "url": "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/40.jpg"
+    },
+    {
+      "page": 57,
+      "bytes": 746355,
+      "base64_chars": 995140,
+      "sha": "83f661b6107587c5d153d6dea3f6bf03090a70bc",
+      "manifest_sha": "83f661b6107587c5d153d6dea3f6bf03090a70bc",
+      "sha_matches_manifest": true,
+      "url": "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/57.jpg"
+    },
+    {
+      "page": 68,
+      "bytes": 661727,
+      "base64_chars": 882304,
+      "sha": "701e47789abf4401d61420ff938c2b72aa03ad2c",
+      "manifest_sha": "701e47789abf4401d61420ff938c2b72aa03ad2c",
+      "sha_matches_manifest": true,
+      "url": "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/68.jpg"
+    },
+    {
+      "page": 73,
+      "bytes": 389813,
+      "base64_chars": 519752,
+      "sha": "afa3428764199ddf590baf0c055c8caedc079cb1",
+      "manifest_sha": "afa3428764199ddf590baf0c055c8caedc079cb1",
+      "sha_matches_manifest": true,
+      "url": "https://github.com/scream314/cicada3301/blob/master/assets/2014/liber-primus-complete/73.jpg"
+    }
+  ],
+  "annotated_derivative_pages": [
+    {
+      "page": 24,
+      "bytes": 678129,
+      "base64_chars": 904172,
+      "sha": "235e0a1c8d7c93439e5d834a4bf6bbe293da392b",
+      "url": "https://github.com/mrfentmen/annotated-pages/blob/main/24.jpg",
+      "sha_differs_from_original": true
+    },
+    {
+      "page": 40,
+      "bytes": 592993,
+      "base64_chars": 790660,
+      "sha": "6f83d16a6ea7b8a0710165d424cb0fdbe475da56",
+      "url": "https://github.com/mrfentmen/annotated-pages/blob/main/40.jpg",
+      "sha_differs_from_original": true
+    },
+    {
+      "page": 57,
+      "bytes": 855554,
+      "base64_chars": 1140740,
+      "sha": "736ddd4507434d406f4837cbbbed74abb21c5d4d",
+      "url": "https://github.com/mrfentmen/annotated-pages/blob/main/57.jpg",
+      "sha_differs_from_original": true
+    },
+    {
+      "page": 68,
+      "bytes": 741466,
+      "base64_chars": 988624,
+      "sha": "e55dc15db67a43510320a806b61853999549fde8",
+      "url": "https://github.com/mrfentmen/annotated-pages/blob/main/68.jpg",
+      "sha_differs_from_original": true
+    },
+    {
+      "page": 73,
+      "bytes": 479646,
+      "base64_chars": 639528,
+      "sha": "0f59dbd5578bcce85584550ff5891d4dba7aac8b",
+      "url": "https://github.com/mrfentmen/annotated-pages/blob/main/73.jpg",
+      "sha_differs_from_original": true
+    }
+  ],
+  "visual_comparison": {
+    "pages_rendered_from_original_sources": [
+      24,
+      40,
+      57,
+      68,
+      73
+    ],
+    "pages_rendered_from_annotated_repository": [
+      24,
+      40,
+      57,
+      68,
+      73
+    ],
+    "observations": [
+      "Original page 24 renders the same five black dots shown with magenta numeric labels in the annotated derivative; labels are absent from the original image.",
+      "Original page 40 renders the same five black dots shown with orange numeric labels in the annotated derivative; labels are absent from the original image.",
+      "Original page 73 renders the same five black dots shown with orange numeric labels in the annotated derivative; labels are absent from the original image.",
+      "The page 57 and 68 botanical illustrations and small plant-adjacent dot groups are visible in the original source renders and align visually with annotated derivatives."
+    ]
+  },
+  "status": {
+    "repository_metadata_retrieval": "SUCCESS",
+    "base64_payload_retrieval": "SUCCESS for all five original and five annotated derivative images",
+    "source_blob_sha_metadata_matches_manifest": true,
+    "visual_decode_and_inspection": "SUCCESS",
+    "local_image_files_written": false,
+    "fresh_local_pixel_measurements": false,
+    "centroid_reproduction_status": "PENDING",
+    "interpretation": "The alternative repository enables visual inspection, and original-source image payloads can be retrieved and rendered through the connector. Quantitative local pixel analysis remains blocked because the container cannot resolve raw.githubusercontent.com."
+  },
+  "limits": [
+    "GitHub blob SHA metadata was compared with the existing manifest, but local SHA-1/SHA-256 were not recomputed from files in this runtime.",
+    "Annotated derivative hashes differ from original source page hashes, as expected for files containing number overlays; they are not replacements for original source bytes.",
+    "No new centroid, component area, bounding-box, Procrustes, significance, or cipher-relevance result was computed in this pass."
+  ]
+}

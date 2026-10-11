@@ -1,0 +1,468 @@
+## Initial audit findings — October 10, 2026
+
+The v1.1 master workbook and `measure_constellations_v0_2.py` were recovered from your Library. The workbook contains all 19 previously recorded sheets, including the five v1.1 measurement and validation sheets.
+
+The first numerical audit has reproduced the central geometric result from the workbook’s stored coordinates:
+
+| Page pair | Best transformation         | Recomputed RMS error |
+| --------- | --------------------------- | -------------------- |
+| 24 → 40   | Reflection                  | 0.0311 pixels        |
+| 24 → 73   | Reflection                  | 0.2062 pixels        |
+| 40 → 73   | Rotation without reflection | 0.2315 pixels        |
+
+Each result was refitted against all 120 possible point correspondences for each transformation class. The best mappings and residuals agree with the recorded v1.1 fits to rounding. These are excellent geometric matches, but they are not evidence of encryption by themselves.
+
+The auxiliary measurements also reproduce the three-dot spacing on pages 50 and 56: the adjacent-gap proportions are 46.6214% / 53.3786% and 46.6101% / 53.3899%, respectively. A same-order scale-and-translation fit has an RMS residual of approximately 0.0225 pixels.
+
+The current public GitHub source records for all eight specified pilot pages—24, 39, 40, 50, 56, 57, 68 and 73—return the same Git blob identifiers recorded in v1.1. The remaining major validation gap is a fresh local decode using Pillow/libjpeg; I have not yet been able to transfer the source JPEG bytes into the local analysis runtime, so I will not claim that cross-decoder test was completed.
+
+The v1.2 research record and updated master workbook are ready. The audit found strong geometric repetition in the selected motifs, but it has not established a cipher relationship or statistical significance across the manuscript.
+
+## Research artifacts
+
+Master workbook v1.2
+
+Preserves the original 19 sheets and appends 10 audit, refit, control, coverage and experiment-log sheets.
+
+Download the v1.2 workbook
+
+Full research report (Markdown)
+
+Findings, discrepancies, methods, controls, negative results and the recommended next experiment.
+
+Read the v1.2 research report
+
+Reproducible calculation and workbook-build script
+
+Recalculates the geometry from the stored v1.1 measurements and builds the v1.2 workbook.
+
+Download the Python script
+
+Machine-readable results
+
+Computed fit parameters, normalized signatures, control metrics, and validation statuses in JSON.
+
+Download the audit results JSON
+
+## Important correction to the preliminary results
+
+The initial report said the new transformation fits agreed with the v1.1 values to rounding. A closer reconciliation found that this was too strong. The best mappings and transformation classes match, but refitting from the numeric centroid cells gives:
+
+| Pair    | v1.1 stored RMS | v1.2 recomputed RMS |
+| ------- | --------------- | ------------------- |
+| 24 → 40 | 0.0311391 px    | 0.0311377 px        |
+| 24 → 73 | 0.2061865 px    | 0.2064291 px        |
+| 40 → 73 | 0.2315489 px    | 0.2318049 px        |
+
+The two page-73-involving fits differ by approximately 0.00024–0.00026 pixels. The cause remains unresolved. The report and workbook retain both values rather than silently replacing the older results.
+
+The threshold-sensitivity calculation reproduced the maximum centroid displacement of 0.173612 pixels across thresholds 40, 60, 80 and 100. The three-dot controls on pages 50 and 56 also reproduce their closely matching gap proportions and a same-order fit with an RMS error of 0.022529 pixels.
+
+## What remains unresolved
+
+The public GitHub blob IDs for all eight pilot pages match the IDs recorded in v1.1. However, the current turn did not complete an independent source-pixel decode, a full-corpus search, or a manuscript-empirical null distribution. The recovered Python script uses Pillow, while the measurements in v1.1 refer to a separate JavaScript decoder whose source was not recovered here. The script’s synthetic self-test passes, but it does not validate the manuscript pixels.
+
+The next priority is to resolve that decoder and measurement-provenance gap, then run the same documented detector over all available page scans while retaining rejected candidates. Only after that should we estimate how unusual the five-dot arrangement is relative to real manuscript ornaments and test any predeclared connection to the runes or text.
+
+The v1.2 workbook and Markdown report record these open tasks explicitly.
+
+------------------------------------------
+
+
+The next step is to validate the original image measurements independently before searching for cipher meaning. We have promising geometric matches, but we still need to establish that the measurements are correct and that the pattern is unusual compared with ordinary decorative artwork in Liber Primus.
+
+I recommend proceeding in this order.
+
+## Step 1 — Validate the five-dot measurements
+
+Start with pages 24, 40 and 73.
+
+[visual - ᚫᛄ•ᛟᛋᚱ•ᛗᚣᛚᚩᚻ•ᚩᚫ•ᚳᚦᚷᚹ•ᚹᛚᚫ•ᛉ - Puzzling Stack Exchange](https://images.openai.com/static-rsc-4/WOtPQVoGT-UDDLJqRzAwCjbPA0JH3Lej0Fqn17SxJl1vBCw8zNxmCnDmCLwXFfcc340DqIXdxOY1tBbFzZilHxM3GKlp4CUqhHger17GvxiFOdI1QMHvwPt9ogeboLkTe8yIMxllV0we-AIArFhe5WAPrS0w1TAgBmwCn1-yk3I?purpose=inline)
+
+Page 24
+
+Verify the five dot centers against the original scan, using an established JPEG decoder and the documented region of interest.
+
+[CICADA 3301 | The Hardest Unsolved Puzzle On The Internet](https://images.openai.com/static-rsc-4/-AOeHmr9e41rwb_SHJM7SiwVkqEgMhhnpkEzO0sPt5JMdLBeCrSPzsk4cvnnSD9_concUSwrLpeoreJLMmK2gCB1DH32esreVL_rJGrA-mV0lR_hcKkgqj27iYMFwnNHjVl25A3b3HrNrJVZdvGP5TopuFBMIQ8lsY__6yrKQZ8?purpose=inline)
+
+Page 40
+
+Repeat the extraction independently and verify the reported reflection relationship with page 24.
+
+[Martin (@martinrue) on X](https://images.openai.com/static-rsc-4/3eKcfb6P3nWlTK69dbG2dap2mveFflBHVr9KRdzal9KVk4Mi9op-ROAAef9ArekBznU-GJrsmix_6cC2Yz7aZCMYR2sXmvoBaCl_4UKtMZfUW1FSiu6qlDJkLnGdp9lDHtL7SYXT8_dUhWHepO262H3PIPAp_X8uZutzmIJjQdM?purpose=inline)
+
+Page 73
+
+Verify the five centers and the rotation/reflection fits. Resolve the small discrepancy between the v1.1 and v1.2 residuals.
+
+The original scans are available in the [public source repository](https://github.com/scream314/cicada3301/tree/master/assets/2014/liber-primus-complete).
+
+The deliverable from this step should be a table of independently extracted pixel coordinates, component masks, bounding boxes, and centroid differences. If the coordinates do not reproduce, we stop and fix the extraction method before moving forward.
+
+## Step 2 — Search every available page for comparable dot groups
+
+Once the pilot measurements are validated, run a repeatable detector across the complete available page corpus.
+
+The detector should identify candidate groups with three, five, six, and other numbers of dots, recording raw coordinates and detection parameters. It should retain rejected candidates and distinguish likely decorative marks from runes, text, and scan artifacts.
+
+This answers the key question: are pages 24, 40 and 73 genuinely unusual, or are similar geometric configurations common throughout the book?
+
+## Step 3 — Build the statistical control
+
+Compare the five-dot motif against other five-dot groups and randomly selected five-point subsets from the manuscript.
+
+For each comparison, use the same distance normalization and transformation models. Account for all point permutations and transformation types searched, because finding the best match among thousands of possibilities will naturally produce some very low residuals.
+
+The result should include an empirical null distribution and a multiple-comparison-adjusted significance estimate where the data support one.
+
+## Step 4 — Investigate cipher relevance only if the geometry survives
+
+If the five-dot arrangement remains unusual after controlling for reused artwork and search flexibility, define a specific hypothesis connecting a measurable property to the manuscript.
+
+For example, a point-ordering rule must be defined before extracting a sequence. Its output must make a prediction that can fail, and the same rule must be tested on control motifs.
+
+Do not begin trying arbitrary rune substitutions or assigning symbolic meanings to the points yet.
+
+## The immediate action
+
+I would start with Step 1: independent image validation, because every subsequent statistical conclusion depends on those measurements being correct.
+
+The first three priorities are:
+
+1. Decode the original JPEGs independently and verify the five component masks.
+2. Recompute the coordinates and all pairwise distances using one common method.
+3. Refit the transformations and preserve the old and new results side by side.
+
+Once that passes, we can expand to the full corpus rather than spend time refining a motif that might be a reused ornament.
+
+The objective is not to prove that the dots are meaningful. It is to determine whether they contain information that ordinary page design cannot explain.
+------------------------------------------
+## v1.4 deliverables
+
+Master workbook
+
+Preserves previous research and adds the `Source Integrity v1.4` sheet with all 75 page hashes.
+
+Download the v1.4 workbook
+
+Research report
+
+Records the validation results, limitations, and next technical blocker.
+
+Read the v1.4 report
+
+Source hash manifest
+
+Download the JSON manifest
+
+## What comes next
+
+The repository inventory is complete, but the measurements still need independent reproduction. The immediate next step is to get the actual JPEG bytes into the analysis environment and recompute the target centroids using an independent decoder.
+
+I will keep the evidence categories separate:
+
+- Source integrity: verified for all 75 pages.
+- Geometric similarity: previously observed in the stored measurements, not yet independently reproduced.
+- Cipher relevance: unproven.
+
+The full-manuscript search and empirical null test should follow pixel-level validation, not precede it. The source repository is available here: [scream314/cicada3301 — Liber Primus images](https://github.com/scream314/cicada3301/tree/master/assets/2014/liber-primus-complete).
+------------------------------------------
+I continued the investigation and created v1.5, preserving the existing master dataset and adding a reproducibility audit rather than repeating the earlier source-inventory work.
+
+## New research files
+
+- Download the v1.5 master dataset
+- Read the v1.5 research report
+- View the machine-readable pipeline audit
+- View the audit-generation script
+
+The workbook retains the earlier sheets and adds `Pipeline Audit v1.5`.
+
+## What I found
+
+I examined the existing `measure_constellations_v0_2.py` extraction script and ran its built-in synthetic test. The test passed at all four thresholds—40, 60, 80 and 100—with five synthetic circles detected and zero rounded-center error.
+
+That verifies only a narrow part of the code. The audit identified several issues that matter before trusting the geometric results:
+
+1. The detector only examines three predefined regions on pages 24, 40 and 73. It cannot establish whether comparable patterns occur elsewhere in the manuscript.
+2. Rejected components are discarded. That prevents us from auditing what the detector missed or whether its circular-dot filters bias the results.
+3. The distance normalization differs from the workbook's documented method. Results from the script therefore cannot be compared directly with the stored geometric signatures without standardizing the calculation.
+4. The script's optional random-point null is unsuitable for statistical inference. It does not model real manuscript artwork, repeated ornaments or the process that selected the target groups.
+5. The original-pixel decoder comparison remains unfinished. The script uses Pillow's grayscale conversion, while the existing centroid records attribute their measurements to a separate JavaScript JPEG decoder.
+
+## What this means for the investigation
+
+The close geometric matches previously recorded for pages 24, 40 and 73 remain worth investigating. The apparent repetition between the plant ornaments on pages 57 and 68 also remains a useful control. However, neither has been independently reproduced from the original JPEG pixels in this analysis environment, and neither establishes a cipher relationship.
+
+I also attempted to retrieve an original image directly into the local analysis environment, but network access failed. The GitHub source inventory is intact; the missing step is getting the actual image bytes into an environment where we can verify their hashes and independently measure their pixels.
+
+The next priority is to obtain the original JPEGs, compare the two decoding pipelines, and then run a detector across all 75 pages while retaining rejected components. Only after that should we build a manuscript-specific statistical control and test whether any geometric feature makes a specific, falsifiable prediction about the cipher.
+------------------------------------------
+
+
+I inspected the v1.5 project artifacts, reproduced the stored geometric calculations, and created a versioned v1.6 update. The central limitation remains: the original JPEG bytes could not be transferred into the local analysis environment, so the source-pixel verification is still incomplete.
+
+## 1. What the investigation established
+
+The stored centroid calculations reproduce the previous workbook’s best-fit results. I tested all 120 point correspondences under each of two determinant-constrained transform models, giving 240 fits per page pair.
+
+| Page pair | Best-fit model  | RMS residual | Maximum residual |
+| --------- | --------------- | ------------ | ---------------- |
+| 24 → 40   | Reflection      | 0.03114 px   | 0.05269 px       |
+| 24 → 73   | Reflection      | 0.20643 px   | 0.28824 px       |
+| 40 → 73   | Proper rotation | 0.23180 px   | 0.33901 px       |
+
+The page 24–40 fit is especially close to a vertical reflection followed by translation. The normalized pairwise-distance signatures also remain close: their RMS differences are 0.00006365 for pages 24–40, 0.00048502 for pages 24–73, and 0.00053060 for pages 40–73.
+
+These results confirm the arithmetic of the inherited centroid coordinates, not the accuracy of the underlying measurements. Because the fits were selected after searching many correspondences, their residuals are descriptive—not p-values or proof of intentional encoding. Reused or mirrored artwork remains a plausible explanation.
+
+## 2. Source acquisition: exact outcome
+
+I confirmed that the v1.5 workbook, report, audit files, and v1.4 source-integrity manifest exist. The manifest inventories 75 page objects. GitHub directory metadata also returned the expected object identifiers for pages 24, 40, 57, 68, and 73.
+
+However, a direct download failed with a DNS resolution error. The GitHub connector returned page 24 as base64 content, but that payload could not be transferred into the local pixel-analysis filesystem as an image file. I then tested the new acquisition script; it correctly recorded `BLOCKED_DOWNLOAD` rather than claiming that the source image had been verified.
+
+Consequently, no new pixel measurements were made. The centroids, threshold stability, and page 57/68 plant-ornament comparison remain unverified against the original image bytes.
+
+## 3. Updated project files
+
+Master workbook v1.6
+
+Preserves the previous 32 sheets and adds `Coordinate Refit v1.6` and `Source Acquisition v1.6`.
+
+Download the updated workbook
+
+Research report v1.6
+
+Records the refit results, acquisition blocker, interpretation limits, and remaining validation work.
+
+Download the research report
+
+Source-acquisition bundle
+
+Includes the acquisition script, source-integrity manifest, and run instructions. Downloads and verifies original JPEG files when run in an environment with network access.
+
+Download the acquisition bundle
+
+Machine-readable audit v1.6
+
+Contains the transform measurements, provenance limitations, and acquisition test results.
+
+Download the audit JSON
+
+Acquisition attempt log
+
+Download the page-24 acquisition test record
+
+The acquisition script’s hashing self-test passed. Its attempted page-24 download failed as expected in this environment, so it did not produce a verified image.
+
+## 4. The next concrete step
+
+Run the acquisition bundle on a machine with network access. By default, it attempts to retrieve pages 24, 40, 57, 68, and 73, checks each downloaded file against the recorded Git blob SHA-1, computes SHA-256, and verifies the JPEG format and dimensions.
+
+Once those verified JPEGs and the generated audit JSON are available here, the next analysis can move from inherited coordinates to independent pixel extraction. That is the evidence needed before deciding whether the geometric relationships reflect copied artwork, repeated layout, or something worth testing as a cipher-related structure.
+
+
+------------------------------------------
+
+I continued the investigation and created a v1.7 update with a new threshold-robustness experiment. The original image-acquisition blocker remains, but the existing measurements support a more precise comparison of the three geometric relationships.
+
+## New findings
+
+Pages 24 and 40 remain the strongest match. I held the previously selected point correspondence fixed and tested a simpler vertical reflection plus translation at thresholds 40, 60, 80, and 100, without allowing scale or rotation.
+
+Best RMS residual
+
+# 0.0368 px
+
+At thresholds 60 and 80, the restricted transform has an RMS residual of 0.0368 pixels and a maximum residual of 0.0736 pixels.
+
+Maximum residual across all four thresholds
+
+## 0.0977 px
+
+Four of the five matched components also have identical recorded areas and bounding-box dimensions at thresholds 60 and 80.
+
+The comparisons involving page 73 are less exact. Their RMS residuals range from 0.2234 to 0.2460 pixels for pages 24→73 and from 0.2308 to 0.2744 pixels for pages 40→73. None of their five matched components has exactly equal recorded area at any tested threshold.
+
+The current evidence therefore supports this working interpretation: pages 24 and 40 most strongly resemble the same geometric template, while page 73 is a looser match. Reused or mirrored artwork remains a plausible explanation, not a proven one.
+
+These are recalculations of the workbook's inherited measurements. I still could not download the original JPEG bytes because this runtime continues to encounter DNS resolution failures. No fresh pixel measurements, statistical significance test, or cipher connection has been established.
+
+## Updated research files
+
+Complete v1.7 update bundle
+
+Contains the updated master workbook, research report, audit JSON, reproducibility script, and source-acquisition bundle.
+
+Download the complete bundle
+
+Master workbook v1.7
+
+Preserves the previous sheets and adds `Threshold Match v1.7`, with 12 summary rows and 60 point-level records.
+
+Download the workbook
+
+Research report v1.7
+
+Read the full report
+
+Machine-readable audit
+
+Download the threshold-match audit
+
+Reproducibility script
+
+Download the Python analysis script
+
+I verified the exported workbook, found no formula errors, and independently reran the analysis script. All 12 pair-and-threshold summary results matched.
+
+## Next decisive experiment
+
+The remaining priority is obtaining locally usable copies of pages 24, 40, 57, 68, and 73. With those exact bytes verified, the next test is to reflect and translate the page 24 dot-mask crop and compare its actual pixels against page 40. That can distinguish repeated artwork from merely similar centroid geometry. The page 57/68 plant-ornament comparison should then be checked using the same method.
+
+Until that is done, the strongest result is a reproducible relationship in the stored coordinates—not a demonstrated cipher mechanism.
+
+------------------------------------------
+
+I continued the investigation and produced v1.8, which standardizes the geometry comparisons across the existing target groups and control motifs. The workbook preserves the prior 35 sheets and adds a new `Shape Controls v1.8` sheet.
+
+## 1. The main geometric result
+
+The key improvement was to recalculate the target and control signatures using the same two normalization methods. This addresses the inconsistency between earlier workbook sheets.
+
+| Comparison                              | RMS-normalized difference | Max-normalized difference |
+| --------------------------------------- | ------------------------- | ------------------------- |
+| Page 24 vs. 40                          | 0.000063647               | 0.000041311               |
+| Page 24 vs. 73                          | 0.000485024               | 0.000321098               |
+| Page 40 vs. 73                          | 0.000530601               | 0.000348780               |
+| Page 24 vs. page 68 plant control       | 0.180217842               | 0.191306768               |
+| Page 24 vs. best page 39 control subset | 0.153383071               | 0.105133361               |
+
+Smaller values mean more similar normalized shape signatures. The page 39 control searches all six possible five-point subsets of its six recorded dots.
+
+The results remain consistent under both normalization methods: pages 24, 40, and 73 form a much more closely matched group than either of the tested controls. The page 68 control is approximately 340 times the largest target-to-target difference under RMS normalization; the closest page 39 subset is approximately 289 times that difference.
+
+These are descriptive comparisons, not statistical significance tests. The motifs were selected during earlier exploratory work, and the control set remains small.
+
+## 2. A second recurring graphic pattern
+
+[liber primus page 55 cicada off center - Imgur](https://images.openai.com/static-rsc-4/lGdmyDzxi-b9GduCBGdNmgEtlorxJUvEQ0Fs3sUA7mn7mWi_fXzCh-SOtKRXWdrO7x0HJKaKQoJs5iSSvzLoEIKK7jt_7gM3asqvQ66LswVpd1Kbr1ngbqileoWiJj_7nabJyIfPwWn-cykjISEQPOBjlmdZrhFlBSGrvxuJic0?purpose=inline)
+
+Pages 57 and 68
+
+The stored coordinates, component areas, and bounding boxes for the five right-side plant-adjacent dots match point-for-point. The source images also visually show the same-looking botanical border artwork alongside different text.&#x20;
+
+[visual - ᚫᛄ•ᛟᛋᚱ•ᛗᚣᛚᚩᚻ•ᚩᚫ•ᚳᚦᚷᚹ•ᚹᛚᚫ•ᛉ - Puzzling Stack Exchange](https://images.openai.com/static-rsc-4/WOtPQVoGT-UDDLJqRzAwCjbPA0JH3Lej0Fqn17SxJl1vBCw8zNxmCnDmCLwXFfcc340DqIXdxOY1tBbFzZilHxM3GKlp4CUqhHger17GvxiFOdI1QMHvwPt9ogeboLkTe8yIMxllV0we-AIArFhe5WAPrS0w1TAgBmwCn1-yk3I?purpose=inline)
+
+Pages 50 and 56
+
+These form a separate three-dot row candidate. Their stored normalized gap proportions are nearly identical, while their end-to-end spans differ by a factor of approximately 2.13.&#x20;
+
+This distinction matters. The evidence points toward multiple recurring graphic templates, not one universal dot pattern. Repeated decorative artwork is a strong working explanation for some of the matches, but it does not explain every geometric relationship automatically.
+
+## 3. Updated research files
+
+Complete v1.8 research bundle
+
+Includes the workbook, report, audit, reproducibility script, and previous source-acquisition materials.
+
+Download the complete bundle
+
+Master workbook v1.8
+
+Download the updated workbook
+
+Research report v1.8
+
+Read the full report
+
+Machine-readable audit
+
+Download the v1.8 audit JSON
+
+Reproducibility script
+
+Download the Python analysis script
+
+The updated workbook was reopened and checked: all 36 sheets are present, including the new comparison sheet, and the formula-error scan returned zero matches. The reproducibility script also ran successfully and reproduced the main signature differences.
+
+## 4. What remains unresolved
+
+I again tried to acquire the original JPEG files locally, but requests to GitHub failed because of DNS resolution errors. I was able to inspect several original-page URLs as browser-rendered images, including pages 24, 40, 73, 57, 68, 50, and 56. Those views support qualitative observations about placement and repeated artwork, but they do not complete independent pixel validation.&#x20;
+
+The next decisive step remains obtaining the original JPEG bytes for local analysis. The priority pages are 24, 40, 57, 68, and 73, with 39, 50, and 56 as controls. Once those files are available, we can validate their hashes, compare independent JPEG decoders, reproduce centroids, and test the plant artwork with actual pixel differences.
+
+Until then, the geometric recurrence is worth retaining as a research finding, but there is still no demonstrated mapping from these motifs to rune values, plaintext, or a keystream.
+
+------------------------------------------
+I continued the investigation and created v2.0, focused on verifying how your numbered annotations correspond to the five-dot constellation on pages 24, 40, and 73.
+
+The important result is that the label mappings are now explicit, and the three geometric comparisons must be interpreted as a related transformation family—not three independent coincidences.
+
+## 1. Verified correspondence mappings
+
+These mappings use the inherited centroid records, checked against the rendered annotated pages.
+
+| Source → target | Transformation        | Point labels mapped     |
+| --------------- | --------------------- | ----------------------- |
+| Page 24 → 40    | Vertical reflection   | 1→1, 2→2, 3→5, 4→4, 5→3 |
+| Page 24 → 73    | Horizontal reflection | 1→4, 2→5, 3→3, 4→2, 5→1 |
+| Page 40 → 73    | 180° rotation         | 1→4, 2→5, 3→1, 4→2, 5→3 |
+
+The fixed-orientation transform calculations produce these residuals:
+
+| Pair    | RMS error  | Maximum error |
+| ------- | ---------- | ------------- |
+| 24 → 40 | 0.03684 px | 0.07367 px    |
+| 24 → 73 | 0.24611 px | 0.31571 px    |
+| 40 → 73 | 0.26328 px | 0.34617 px    |
+
+These are recalculations from existing coordinates, not new pixel measurements.
+
+## 2. An important correction to the interpretation
+
+A vertical reflection followed by a horizontal reflection produces a 180° rotation. Therefore, once the first two relationships are established, the third is mathematically expected.
+
+This means we should not count the three pairwise matches as three independent pieces of evidence. The geometry is internally consistent, but its statistical significance and cipher relevance remain unestablished.
+
+I also documented a permutation-direction issue: the mapping recorded in one earlier report is the inverse of the newly explicit page-24-to-73 annotation mapping. This matters if the point order is ever reused in a cipher-indexing experiment.
+
+## 3. Updated files
+
+Complete v2.0 bundle
+
+Contains the updated master workbook, research report, audit JSON, and reproducibility script.
+
+Download the complete bundle
+
+Master workbook v2.0
+
+Preserves the earlier sheets and adds `Label Mapping v2.0` with the transformation parameters and point-level residuals.
+
+Download the workbook
+
+Research report v2.0
+
+Read the report
+
+Reproducibility script
+
+Download the Python script
+
+The workbook export and script rerun succeeded, and the bundled archive passed its integrity check.
+
+## 4. What comes next
+
+The priority remains independent pixel validation of the original JPEGs. The GitHub connector can retrieve and render the original pages, and the returned source identifiers match the existing manifest, but this runtime still cannot transfer those image bytes into the local analysis environment for independent centroid extraction.
+
+Once that blocker is resolved, the next meaningful test is to compare the actual dot-pixel masks under the mapped reflections, including their edges and component areas. That could help distinguish reused graphic artwork from separately rendered marks with similar geometry.
+
+Until then, the five-dot motif remains a distinctive and reproducible relationship in the inherited coordinates, with no demonstrated mapping to plaintext or the keystream.
+
+
+------------------------------------------
+
+
+
+------------------------------------------
